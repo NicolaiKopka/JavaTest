@@ -4,7 +4,13 @@ import java.util.Map;
 public class FizzBuzz {
     public static void main(String[] args) {
         //fizzBuzz();
-        System.out.println(fib(40));
+        //System.out.println(fib(40));
+        int var1 = 5;
+        int var2 = 2;
+        System.out.println(var1 + var2 + "Summe");
+
+        String result = var1 > var2 ? "Stimmt" : "Stimmt nicht";
+        System.out.println(result);
 
     }
 
@@ -23,12 +29,21 @@ public class FizzBuzz {
     }
 
     public static int fib(int n) {
-        Map<Integer, Integer> map= new HashMap<>();
-        map.put(0, 0);
-        map.put(1, 1);
+        Map<Integer, Integer> map= new HashMap<>(Map.of(0, 0, 1, 1));
         if(map.get(n) == null) {
             map.put(n, fib(n-2) + fib(n-1));
         }
         return map.get(n);
+    }
+
+    public static int fib2(int n) {
+        int last = 0;
+        int next = 1;
+        for (int i = 0; i < n; i++) {
+            int oldLast = last;
+            last = next;
+            next = next + oldLast;
+        }
+        return last;
     }
 }
