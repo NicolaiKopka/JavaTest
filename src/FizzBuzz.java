@@ -4,7 +4,8 @@ import java.util.Map;
 public class FizzBuzz {
     public static void main(String[] args) {
         //fizzBuzz();
-        fib(3);
+        System.out.println(fib(40));
+
     }
 
     public static void fizzBuzz() {
@@ -21,10 +22,13 @@ public class FizzBuzz {
         }
     }
 
-    public static void fib(int n) {
+    public static int fib(int n) {
         Map<Integer, Integer> map= new HashMap<>();
         map.put(0, 0);
         map.put(1, 1);
-        map.get(n);
+        if(map.get(n) == null) {
+            map.put(n, fib(n-2) + fib(n-1));
+        }
+        return map.get(n);
     }
 }
