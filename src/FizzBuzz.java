@@ -5,12 +5,13 @@ public class FizzBuzz {
     public static void main(String[] args) {
         //fizzBuzz();
         //System.out.println(fib(40));
-        int var1 = 5;
-        int var2 = 2;
-        System.out.println(var1 + var2 + "Summe");
+        //int var1 = 5;
+        //int var2 = 2;
+        //System.out.println(var1 + var2 + "Summe");
 
-        String result = var1 > var2 ? "Stimmt" : "Stimmt nicht";
-        System.out.println(result);
+        //String result = var1 > var2 ? "Stimmt" : "Stimmt nicht";
+        //System.out.println(result);
+        System.out.println(classicRec(8));
 
     }
 
@@ -36,14 +37,21 @@ public class FizzBuzz {
         return map.get(n);
     }
 
-    public static int fib2(int n) {
-        int last = 0;
-        int next = 1;
-        for (int i = 0; i < n; i++) {
-            int oldLast = last;
-            last = next;
-            next = next + oldLast;
+//    public static int fib2(int n) {
+//        int last = 0;
+//        int next = 1;
+//        for (int i = 0; i < n; i++) {
+//            int oldLast = last;
+//            last = next;
+//            next = next + oldLast;
+//        }
+//        return last;
+//    }
+
+    public static int classicRec(int n) {
+        if(n < 2) {
+            return n;
         }
-        return last;
+        return classicRec(n - 2) + classicRec(n - 1);
     }
 }
